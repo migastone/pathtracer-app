@@ -10,4 +10,4 @@ The App is able to warn if a user was physically near another user marked as **i
 
 The data collection is made anonymous by using the **UUID** of each phone, this allow to keep the *privacy* of each user monitored.
 
-**NOTE: This is app part of the project. For server part visit the [server](https://github.com/migastone/pathtracer-server "server") repository**
+**NOTE: This is app part of the project. For server part visit the [server](https://github.com/migastone/pathtracer-server "server") repository.**
