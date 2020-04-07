@@ -123,6 +123,23 @@ angular.module("virus_path_tracer.controllers", [])
   .controller("StatusController", function ($scope, $ionicLoading, $cordovaSQLite, $cordovaLocalNotification, $ionicPlatform, $ionicPopup, $cordovaDevice, $timeout, $q, API_TOKEN, PUSH_ICON, LOCAL_DB_ENTRY_MINUTES, API_DB_ENTRY_MINUTES, Dialog, Status) { ....... });
 ```
 
+We are using [`cordova-background-geolocation`](https://github.com/transistorsoft/cordova-background-geolocation "`cordova-background-geolocation`") for managing the fetching the background geolocation. You can update the settings to suites your needs.
+
+```Javascript
+bgGeo.ready({
+	reset: true,
+	debug: true, // disable it if you feel annoyed with the location detection sound
+	distanceFilter: 10,
+	stopOnTerminate: false,
+	startOnBoot: true,
+	enableHeadless: true
+	}, function (state) {
+		if (!state.enabled) {
+			bgGeo.start();
+		}
+});
+```
+
 ### js/factories.js
 The app consist of 2 main *factories* which includes `Registration` and `Status` which works with respected controllers having same names.
 
@@ -132,4 +149,17 @@ angular.module("virus_path_tracer.factories", [])
   .factory("Registration", function($http, $cordovaDevice, API_URL, API_TOKEN) { ....... })
   
   .factory("Status", function($http, $cordovaDevice, API_URL, API_TOKEN) { ....... });
+```
+
+### views/registration.html & views/status.html
+The app consist of 2 *views* which includes `registration.html` and `status.html` which works with respected code related files having same names.
+
+```ionic
+<ion-view class="registration-view" cache-view="false"> 
+	....... 
+</ion-view>
+
+<ion-view class="status-view" cache-view="false"> 
+	....... 
+</ion-view>
 ```
