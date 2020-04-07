@@ -13,4 +13,4 @@ The data collection is made anonymous by using the **UUID** of each phone, this 
 **NOTE: This is app part of the project. For server part visit the [server](https://github.com/migastone/pathtracer-server "server") repository.**
 
 ----------------------------------------------------------------------------
-[![Download Android APK]()](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
+[![Download Android APK](https://github.com/migastone/pathtracer-app/raw/master/docs_images/download-apk-file-on-pc.png)](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
