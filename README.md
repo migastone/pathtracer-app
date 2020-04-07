@@ -17,3 +17,33 @@ The data collection is made anonymous by using the **UUID** of each phone, this 
 
 ----------------------------------------------------------------------------
 [![Download Android APK](https://github.com/migastone/pathtracer-app/raw/master/docs_images/android_download_poster.png)](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
+
+Technical Details
+===========================================================================
+
+## Installation
+
+### Step 1: Start by cloning this repo
+
+```bash
+$ git clone https://github.com/migastone/pathtracer-app.git
+```
+
+----------------------------------------------------------------------------
+
+### Step 2:  Building and Running the Ionic 1 App
+
+```bash
+$ npm install
+
+$ npm install -g cordova ionic # you should have ionic and cordova installed
+
+$ ionic cordova platform add android
+$ ionic cordova build android --apk
+
+$ ionic cordova platform add ios
+$ ionic cordova build ios
+
+// Browser (not recomended)
+$ ionic cordova serve  
+```
