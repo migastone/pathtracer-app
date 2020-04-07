@@ -84,8 +84,8 @@ try {
  alert(error);
 }
 $cordovaSQLite.execute( //device table
-	db,
-	"CREATE TABLE IF NOT EXISTS device (id INTEGER PRIMARY KEY, country TEXT, platform TEXT, uuid TEXT, version TEXT, manufacturer TEXT, is_infected INTEGER DEFAULT 0, infected_marked_by TEXT, infected_at TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
+  db,
+  "CREATE TABLE IF NOT EXISTS device (id INTEGER PRIMARY KEY, country TEXT, platform TEXT, uuid TEXT, version TEXT, manufacturer TEXT, is_infected INTEGER DEFAULT 0, infected_marked_by TEXT, infected_at TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
 );
 $cordovaSQLite.execute( //ledgers table
   db,
