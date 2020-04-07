@@ -961,21 +961,6 @@ angular.module("virus_path_tracer.controllers", [])
               $scope.myStatusSync();
               //Dialog.alert("onLocation", "Line 895","OK");
             });
-            // Perform some long-running task (eg: HTTP request)
-            bgGeo.startBackgroundTask().then((taskId) => {
-              //Dialog.alert("onLocation", "Line 881","OK");
-              $scope.bgServerSync().then(function (ss_object) {
-                //$scope.notifyUser(ss_object.title, ss_object.message);
-              }, function (ss_object) {
-                //$scope.notifyUser(ss_object.title, ss_object.message);
-                //Dialog.alert("onLocation", "Line 889","OK");
-              }).finally(function () {
-                $scope.deleteOldLedgers();
-                $scope.loadLedgers();
-                $scope.myStatusSync();
-                bgGeo.stopBackgroundTask(taskId);
-              });
-            });
             $scope.notifyUser(bg_object.title, bg_object.message);
             //Dialog.alert("onLocation", "Line 898","OK");
             return defer.promise;
