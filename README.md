@@ -74,15 +74,15 @@ angular
 
 ```Javascript
 try {
-          db = $cordovaSQLite.openDB({
-            name: "vptdbasefinalversion.db", // database name
-            location: "default",
-            androidDatabaseProvider: "system",
-            androidLockWorkaround: 1
-          });
-        } catch (error) {
-          alert(error);
-        }
+	db = $cordovaSQLite.openDB({
+		name: "vptdbasefinalversion.db", // database name
+		location: "default",
+		androidDatabaseProvider: "system",
+		androidLockWorkaround: 1
+	});
+} catch (error) {
+	alert(error);
+}
 		//device table
         $cordovaSQLite.execute(
           db,
@@ -127,16 +127,16 @@ We are using [`cordova-background-geolocation`](https://github.com/transistorsof
 
 ```Javascript
 bgGeo.ready({
- reset: true,
- debug: true, // disable it if you feel annoyed with the location detection sound
- distanceFilter: 10,
- stopOnTerminate: false,
- startOnBoot: true,
- enableHeadless: true
+  reset: true,
+  debug: true, // disable it if you feel annoyed with the location detection sound
+  distanceFilter: 10,
+  stopOnTerminate: false,
+  startOnBoot: true,
+  enableHeadless: true
 }, function (state) {
-	if (!state.enabled) {
-	bgGeo.start();
-	}
+  if (!state.enabled) {
+    bgGeo.start();
+  }
 });
 ```
 
@@ -156,10 +156,10 @@ The app consist of 2 *views* which includes `registration.html` and `status.html
 
 ```html
 <ion-view class="registration-view" cache-view="false"> 
-	....... 
+  ....... 
 </ion-view>
 
 <ion-view class="status-view" cache-view="false"> 
-	....... 
+  ....... 
 </ion-view>
 ```
