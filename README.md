@@ -120,5 +120,16 @@ angular.module("virus_path_tracer.controllers", [])
 
   .controller("RegistrationController", function ($cordovaLocalNotification, $scope, $ionicLoading, $cordovaSQLite, $state, $cordovaDevice, $ionicPlatform, Location, Dialog, PUSH_ICON, Registration) { ....... })
   
-.controller("StatusController", function ($scope, $ionicLoading, $cordovaSQLite, $cordovaLocalNotification, $ionicPlatform, $ionicPopup, $cordovaDevice, $timeout, $q, API_TOKEN, PUSH_ICON, LOCAL_DB_ENTRY_MINUTES, API_DB_ENTRY_MINUTES, Dialog, Status) { ....... });
+  .controller("StatusController", function ($scope, $ionicLoading, $cordovaSQLite, $cordovaLocalNotification, $ionicPlatform, $ionicPopup, $cordovaDevice, $timeout, $q, API_TOKEN, PUSH_ICON, LOCAL_DB_ENTRY_MINUTES, API_DB_ENTRY_MINUTES, Dialog, Status) { ....... });
+```
+
+### js/factories.js
+The app consist of 2 main *factories* which includes `Registration` and `Status` which works with respected controllers having same names.
+
+```Javascript
+angular.module("virus_path_tracer.factories", [])
+
+  .factory("Registration", function($http, $cordovaDevice, API_URL, API_TOKEN) { ....... })
+  
+  .factory("Status", function($http, $cordovaDevice, API_URL, API_TOKEN) { ....... });
 ```
