@@ -74,32 +74,28 @@ angular
 
 ```Javascript
 try {
-	db = $cordovaSQLite.openDB({
+  db = $cordovaSQLite.openDB({
     name: "vptdbasefinalversion.db", // database name
     location: "default",
     androidDatabaseProvider: "system",
     androidLockWorkaround: 1
-	});
+  });
 } catch (error) {
-	alert(error);
+ alert(error);
 }
 $cordovaSQLite.execute( //device table
 	db,
 	"CREATE TABLE IF NOT EXISTS device (id INTEGER PRIMARY KEY, country TEXT, platform TEXT, uuid TEXT, version TEXT, manufacturer TEXT, is_infected INTEGER DEFAULT 0, infected_marked_by TEXT, infected_at TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
 );
 $cordovaSQLite.execute( //ledgers table
-	db,
-	"CREATE TABLE IF NOT EXISTS ledgers (id INTEGER PRIMARY KEY, latitude TEXT, longitude TEXT, status INTEGER DEFAULT 0, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
-).then(
-	function(unique_index) {
-    $cordovaSQLite.execute( //unique index on date for duplicate entries
-      db,
-      "CREATE UNIQUE INDEX IF NOT EXISTS UniqueCreatedAt ON ledgers (created_at)"
-    );
-	},
-	function(error) {
-	}
-);
+  db,
+  "CREATE TABLE IF NOT EXISTS ledgers (id INTEGER PRIMARY KEY, latitude TEXT, longitude TEXT, status INTEGER DEFAULT 0, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
+).then(function(unique_index) {
+  $cordovaSQLite.execute( //unique index on date for duplicate entries
+    db,
+    "CREATE UNIQUE INDEX IF NOT EXISTS UniqueCreatedAt ON ledgers (created_at)"
+  );
+}, function(error) {});
 ```
 
 ## Other Important Files & Settings
