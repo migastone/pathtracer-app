@@ -108,7 +108,7 @@ try {
 ## Other Important Files & Settings
 
 ### js/controllers.js
-The app consist of 2 main controllers which includes RegistrationController for managing registration-related activities for new users and seconds one is StatusController which does many things such as:
+The app consist of 2 main *controllers* which includes `RegistrationController` for managing *registration-related* activities for new users and seconds one is `StatusController` which does many things such as:
 
 + Displaying current status
 + Updating own status (if enabled from API server)
