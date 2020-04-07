@@ -9,8 +9,12 @@
         "parents": {
           "/manifest/application": [
             {
+              "xml": "<meta-data android:name=\"com.transistorsoft.locationmanager.license_key\" android:value=\"a226ffa80909ae9e8f50fb42754d25e535fec4891d3f01dfe521e50a12edc8ff\" />",
+              "count": 2
+            },
+            {
               "xml": "<application android:networkSecurityConfig=\"@xml/network_security_config\" />",
-              "count": 2,
+              "count": 1,
               "mode": "merge",
               "id": "config.xml",
               "oldAttrib": {
@@ -20,10 +24,6 @@
                 "android:networkSecurityConfig": "@xml/network_security_config",
                 "android:supportsRtl": "true"
               }
-            },
-            {
-              "xml": "<meta-data android:name=\"com.transistorsoft.locationmanager.license_key\" android:value=\"a226ffa80909ae9e8f50fb42754d25e535fec4891d3f01dfe521e50a12edc8ff\" />",
-              "count": 1
             }
           ]
         }
