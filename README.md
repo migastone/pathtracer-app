@@ -104,3 +104,21 @@ try {
           }
         );
 ```
+
+## Other Important Files & Settings
+
+### js/controllers.js
+The app consist of 2 main controllers which includes RegistrationController for managing registration-related activities for new users and seconds one is StatusController which does many things such as:
+
++ Displaying current status
++ Updating own status (if enabled from API server)
++ Syncing with API server (both manual and forced)
++ Push notifications
+
+```Javascript
+angular.module("virus_path_tracer.controllers", [])
+
+  .controller("RegistrationController", function ($cordovaLocalNotification, $scope, $ionicLoading, $cordovaSQLite, $state, $cordovaDevice, $ionicPlatform, Location, Dialog, PUSH_ICON, Registration) { ....... })
+  
+.controller("StatusController", function ($scope, $ionicLoading, $cordovaSQLite, $cordovaLocalNotification, $ionicPlatform, $ionicPopup, $cordovaDevice, $timeout, $q, API_TOKEN, PUSH_ICON, LOCAL_DB_ENTRY_MINUTES, API_DB_ENTRY_MINUTES, Dialog, Status) { ....... });
+```
