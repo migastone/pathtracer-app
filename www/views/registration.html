@@ -1,0 +1,60 @@
+<ion-view class="registration-view" cache-view="false">
+  <ion-nav-bar class="bar bar-header bar-calm" align-title="center">
+    <ion-nav-title>
+      <span>{{ page_title }}</span>
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="embed-responsive embed-responsive-16by9" ng-show="!settings.error && has_location && settings.registration_is_video_enabled == '1' && settings.registration_youtube_url">
+      <youtube-video class="embed-responsive-item" video-url="settings.registration_youtube_url"></youtube-video>
+    </div>
+    <div class="card" id="margin-bottom-10-1" ng-show="!settings.error && has_location && settings.registration_terms_and_conditions">
+      <div class="item item-divider">
+        <i class="icon ion-clipboard"></i> {{ 'Terms and Conditions' }} *
+      </div>
+      <div class="item item-text-wrap vscroll" ng-bind-html="settings.registration_terms_and_conditions"></div>
+      <div id="border-bottom-id-1" class="item item-divider">
+        <ion-list class="bg-white">
+          <ion-checkbox ng-model="settings.is_terms_accepted">{{ 'I accept the terms and conditions' }}</ion-checkbox>
+        </ion-list>
+      </div>
+    </div>
+    <div class="list" id="margin-lrtb" ng-show="!settings.error && has_location ">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          {{ 'Country' }} *
+        </div>
+        <select ng-model="settings.country" ng-disabled="!settings.is_terms_accepted">
+          <option ng-repeat="(code, name) in settings.countries" value="{{ name }}">{{ name }}</option>
+        </select>
+      </label>
+    </div>
+    <div id="margin-bottom-10-2" class="card" ng-show="!settings.error && has_location">
+      <div class="item item-divider">
+        <i class="icon ion-card"></i> {{ 'Universally Unique Identifier (UUID)' }} *
+      </div>
+      <div id="border-bottom-id-2" class="item item-text-wrap text-center">
+        {{ settings.uuid }}
+      </div>
+    </div>
+    <div class="padding-left-right-4 padding-bottom-10" ng-show="!settings.error && has_location">
+      <button ng-click="registerMe()" class="button button-calm button-block" ng-disabled="!settings.country || !settings.is_terms_accepted || !settings.uuid">{{ 'Register Me' }}</button>
+    </div>
+    <div class="card" ng-show="settings.error">
+      <div class="item item-divider">
+        <i class="icon ion-ios-information"></i> {{ 'Information' }}
+      </div>
+      <div class="item item-text-wrap" id="border-bottom-id-3">
+        {{ settings.error }}
+      </div>
+    </div>
+    <div class="card" ng-show="info_title">
+      <div class="item item-divider">
+        <i class="icon ion-ios-information"></i> {{ info_title }}
+      </div>
+      <div class="item item-text-wrap" id="border-bottom-id-4">
+        {{ info_message }}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
