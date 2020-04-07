@@ -19,8 +19,7 @@ The data collection is made anonymous by using the **UUID** of each phone, this 
 [![Download Android APK](https://github.com/migastone/pathtracer-app/raw/master/docs_images/android_download_poster.png)](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
 
 Technical Details
-
-----------------------------------------------------------------------------
+===========================================================================
 
 ## Installation
 
@@ -29,6 +28,7 @@ Technical Details
 ```bash
 $ git clone https://github.com/migastone/pathtracer-app.git
 ```
+
 ----------------------------------------------------------------------------
 
 ### Step 2:  Building and Running the Ionic 1 App
