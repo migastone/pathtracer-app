@@ -47,3 +47,24 @@ $ ionic cordova build ios
 // Browser (not recomended)
 $ ionic cordova serve  
 ```
+
+## Configurations
+
+### js/config.js
+
+```Javascript
+angular
+  .module("virus_path_tracer.config", [])
+  // URL of the API server
+  .constant("API_URL", "https://api.viruspathtracer.com/api/") 
+  // API token key on server
+  .constant("API_TOKEN_KEY", "o4FLb6OWVq6vXgaes1zNS0NDKhQM44") 
+   // API token value of server
+  .constant("API_TOKEN", "C23412B9-ADC4-4438-BE3C-3D7ADCA3541D")
+  // after how many minutes we record a location locally in SQLite database (if there is a location)
+  .constant("LOCAL_DB_ENTRY_MINUTES", 15) 
+  // after how many minutes we sync all locations to API server database (if there is a location)
+  .constant("API_DB_ENTRY_MINUTES", 60)
+  // icon used for showing push notifications
+  .constant("PUSH_ICON", "https://api.viruspathtracer.com/assets/img/push_icon.png");
+```
