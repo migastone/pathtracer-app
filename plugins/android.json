@@ -1,0 +1,58 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-background-geolocation": {
+      "GOOGLE_API_VERSION": "16.+",
+      "APPCOMPAT_VERSION": "28.+",
+      "OKHTTP_VERSION": "3.12.+",
+      "EVENTBUS_VERSION": "3.0.0",
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-background-fetch": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.migastone.viruspathtracer"
+    }
+  }
+}

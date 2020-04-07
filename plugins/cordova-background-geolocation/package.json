@@ -1,0 +1,94 @@
+{
+  "_from": "git+https://github.com/transistorsoft/cordova-background-geolocation.git#3.6.1",
+  "_id": "cordova-background-geolocation@3.6.1",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-background-geolocation",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/transistorsoft/cordova-background-geolocation.git#3.6.1",
+    "rawSpec": "https://github.com/transistorsoft/cordova-background-geolocation.git#3.6.1",
+    "saveSpec": "git+https://github.com/transistorsoft/cordova-background-geolocation.git#3.6.1",
+    "fetchSpec": "https://github.com/transistorsoft/cordova-background-geolocation.git",
+    "gitCommittish": "3.6.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/transistorsoft/cordova-background-geolocation.git#c747c236bb75e7621127227f1fc82ec7f79752a2",
+  "_spec": "https://github.com/transistorsoft/cordova-background-geolocation.git#3.6.1",
+  "_where": "F:\\wamp64\\www\\VirusPathTracer",
+  "author": {
+    "name": "Chris Scott, Transistor Software"
+  },
+  "bugs": {
+    "url": "https://github.com/transistorsoft/cordova-background-geolocation/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-background-geolocation",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "The most sophisticated cross-platform background location tracking & geofencing plugin with battery-conscious motion-detection",
+  "devDependencies": {
+    "typedoc": "^0.12.0",
+    "typedoc-plugin-gitlink": "^0.0.3",
+    "typedoc-plugin-mediaplayer": "^0.1.1",
+    "typedoc-theme-transistor": "git+https://github.com/transistorsoft/typedoc-theme-transistor.git"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "2.12.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=7.0.0",
+        "cordova-ios": ">=4.4.0"
+      },
+      "2.9.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=6.3.0",
+        "cordova-ios": ">=4.4.0"
+      },
+      "<2.9.0": {
+        "cordova": ">=6.4.0",
+        "cordova-android": ">=6.0.0",
+        "cordova-ios": ">=4.3.0"
+      }
+    }
+  },
+  "homepage": "https://github.com/transistorsoft/cordova-background-geolocation#README",
+  "keywords": [
+    "gps",
+    "location",
+    "tracking",
+    "geolocation",
+    "geofence",
+    "geofencing",
+    "background",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8",
+    "cordova",
+    "phonegap"
+  ],
+  "license": "Commercial (http://www.binpress.com/license/view/l/7bbff78c0e0f33e865b4f83333a54bdf)",
+  "main": "./src/ionic/index.js",
+  "name": "cordova-background-geolocation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transistorsoft/cordova-background-geolocation.git"
+  },
+  "scripts": {
+    "build": "tsc -p src/ionic",
+    "prepublish": "npm run build"
+  },
+  "types": "./src/ionic/index.d.ts",
+  "version": "3.6.1"
+}

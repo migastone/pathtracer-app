@@ -1,0 +1,71 @@
+<ion-view class="status-view" cache-view="false">
+  <ion-nav-bar class="bar bar-header bar-calm" align-title="center">
+    <ion-nav-title>
+      <span>{{ page_title }}</span>
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list margin-top-10 margin-lef-right-10 margin-bottom-0" ng-show="!info_title">
+      <div class="item item-divider" ng-show="!info_title">{{ 'Universally Unique Identifier (UUID)' }}</div>
+      <div class="item" ng-show="!info_title">{{ device_info.uuid }}</div>
+      <div class="item item-divider" ng-show="!info_title">{{ 'Your Country' }}</div>
+      <div class="item" ng-show="!info_title">{{ device_info.country }}</div>
+    </div>
+    <div class="row padding-left-right-4 padding-bottom-0 padding-top-10" ng-show="!info_title">
+      <div class="col status" ng-class="device_info.status_class">
+        <h2>{{ device_info.status_title }}</h2>
+        <p>{{ device_info.status_text }}</p>
+      </div>
+    </div>
+    <div id="ledgers" ng-show="has_ledger && !info_title">
+      <div class="row header padding-left-right-4 padding-top-0">
+        <div class="col">{{ 'Your Geolocation Tracking Log' }}</div>
+      </div>
+      <div class="row header padding-left-right-4">
+        <div class="col">{{ 'Time Stamp' }}</div>
+        <div class="col">{{ 'Latitude' }}</div>
+        <div class="col">{{ 'Longitude' }}</div>
+        <div class="col">{{ 'Synced' }}</div>
+      </div>
+      <div class="row padding-left-right-4 bg-white" ng-repeat="ledger in ledgers">
+        <div class="col">{{ getFormattedDate(ledger.created_at) }}</div>
+        <div class="col">{{ ledger.latitude }}</div>
+        <div class="col">{{ ledger.longitude }}</div>
+        <div class="col">{{ ledger.status }}</div>
+      </div>
+    </div>
+    <div class="padding-left-right-4 padding-top-10" ng-show="has_not_synced && !info_title">
+      <button ng-click="syncLedgers()" class="button button-calm button-block"
+        ng-disabled="is_syncing">{{ 'Force Server' }}</button>
+    </div>
+    <div class="card" ng-show="device_info && device_info.registration_is_enable_im_infected == '1' && !info_title && device_info.can_update_status">
+      <div class="item item-divider">{{ device_info.registration_im_infected_title }}</div>
+      <div class="item item-text-wrap" ng-show="device_info.is_infected_local != 1">
+        {{ device_info.registration_im_infected_text }}
+      </div>
+      <div class="item item-text-wrap"
+        ng-show="device_info.is_infected_local == 1 && device_info.infected_marked_by_local == 'Self'">
+        {{ 'You reported that you were infected on ' + getFormattedDate(device_info.infected_at_local) }}
+      </div>
+      <div class="item item-divider text-center" id="border-bottom-id-3" ng-show="device_info.is_infected_local != 1">
+        <button ng-click="imInfected(1)" ng-disabled="is_syncing" class="button button-large button-assertive">
+          {{ 'I\'m Infected' }}
+        </button>
+      </div>
+      <div id="border-bottom-id-2" class="item item-divider text-center"
+        ng-show="device_info.is_infected_local == 1 && device_info.infected_marked_by_local == 'Self'">
+        <button ng-click="imInfected(0)" ng-disabled="is_syncing" class="button button-balanced">
+          {{ 'Change your status in NOT INFECTED' }}
+        </button>
+      </div>
+    </div>
+    <div class="card" ng-show="info_title">
+      <div class="item item-divider">
+        <i class="icon ion-ios-information"></i> {{ info_title }}
+      </div>
+      <div class="item item-text-wrap" id="border-bottom-id-1">
+        {{ info_message }}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
