@@ -127,16 +127,16 @@ We are using [`cordova-background-geolocation`](https://github.com/transistorsof
 
 ```Javascript
 bgGeo.ready({
-	reset: true,
-	debug: true, // disable it if you feel annoyed with the location detection sound
-	distanceFilter: 10,
-	stopOnTerminate: false,
-	startOnBoot: true,
-	enableHeadless: true
-	}, function (state) {
-		if (!state.enabled) {
-			bgGeo.start();
-		}
+ reset: true,
+ debug: true, // disable it if you feel annoyed with the location detection sound
+ distanceFilter: 10,
+ stopOnTerminate: false,
+ startOnBoot: true,
+ enableHeadless: true
+}, function (state) {
+	if (!state.enabled) {
+	bgGeo.start();
+	}
 });
 ```
 
@@ -154,7 +154,7 @@ angular.module("virus_path_tracer.factories", [])
 ### views/registration.html & views/status.html
 The app consist of 2 *views* which includes `registration.html` and `status.html` which works with respected code related files having same names.
 
-```ionic
+```html
 <ion-view class="registration-view" cache-view="false"> 
 	....... 
 </ion-view>
