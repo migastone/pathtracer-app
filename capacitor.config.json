@@ -1,0 +1,8 @@
+{
+  "appId": "com.migastone.viruspathtracer",
+  "appName": "VirusPathTracer",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
