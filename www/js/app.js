@@ -1,64 +1,81 @@
-// VirusPathTracer App
+Virus Path Tracer &middot; [Mobile App]
+===========================================================================
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-var db = null; //global database instance
-var bgGeo = null; //global background location instance
-var bgFetch = null; //global background fetch instance
-angular.element(document).ready(function() {
-  if (window.cordova) {
-    console.log(
-      "Running in Cordova, will bootstrap AngularJS once 'deviceready' event fires."
-    );
-    document.addEventListener(
-      "deviceready",
-      function() {
-        console.log("Deviceready event has fired, bootstrapping AngularJS.");
-        angular.bootstrap(document.body, ["virus_path_tracer"]);
-      },
-      false
-    );
-  } else {
-    console.log("Running in browser, bootstrapping AngularJS now.");
-    angular.bootstrap(document.body, ["virus_path_tracer"]);
-  }
-});
+[![](https://d1aettbyeyfilo.cloudfront.net/migastone/3216354_1548953319823Logo_Migastone_blue400px.png)](https://www.migastone.com/)
+
+-------------------------------------------------------------------------------
+Path tracer is an *App* for **iPhone** and **Android** useful to trace and analyze the interaction of people during a time frame of *past 30 days*.
+
+The App is able to warn if a user was physically near another user marked as **infected**.
+
+The data collection is made anonymous by using the **UUID** of each phone, this allow to keep the *privacy* of each user monitored.
+
+**NOTE: This is app part of the project. For server part visit the [server](https://github.com/migastone/pathtracer-server "server") repository.**
+
+----------------------------------------------------------------------------
+[![Download Android APK](https://github.com/migastone/pathtracer-app/raw/master/docs_images/app_poster.png)](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
+
+----------------------------------------------------------------------------
+[![Download Android APK](https://github.com/migastone/pathtracer-app/raw/master/docs_images/android_download_poster.png)](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk)
+
+Technical Details
+===========================================================================
+
+## Installation
+
+### Step 1: Start by cloning this repo
+
+```bash
+$ git clone https://github.com/migastone/pathtracer-app.git
+```
+
+----------------------------------------------------------------------------
+
+### Step 2:  Building and Running the Ionic 1 App
+
+```bash
+$ npm install
+
+$ npm install -g cordova ionic # you should have ionic and cordova installed
+
+$ ionic cordova platform add android
+$ ionic cordova build android --apk
+
+$ ionic cordova platform add ios
+$ ionic cordova build ios
+
+// Browser (not recomended)
+$ ionic cordova serve
+```
+
+## Configurations
+
+### js/config.js
+
+```Javascript
 angular
-  .module("virus_path_tracer", [
-    "ionic",
-    "virus_path_tracer.controllers",
-    "virus_path_tracer.directives",
-    "virus_path_tracer.filters",
-    "virus_path_tracer.services",
-    "virus_path_tracer.factories",
-    "virus_path_tracer.config",
-    "ngCordova",
-    "youtube-embed"
-  ])
-  .run(function($ionicPlatform, $cordovaSQLite) {
-    $ionicPlatform.ready(function() {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs).
-      // The reason we default this to hidden is that native apps don't usually show an accessory bar, at
-      // least on iOS. It's a dead giveaway that an app is using a Web View. However, it's sometimes
-      // useful especially with forms, though we would prefer giving the user a little more room
-      // to interact with the app.
-      if (window.cordova && window.Keyboard) {
-        window.Keyboard.hideKeyboardAccessoryBar(true);
-      }
+  .module("virus_path_tracer.config", [])
+  // URL of the API server
+  .constant("API_URL", "https://api.viruspathtracer.com/api/")
+  // API token key on server
+  .constant("API_TOKEN_KEY", "o4FLb6OWVq6vXgaes1zNS0NDKhQM44")
+   // API token value of server
+  .constant("API_TOKEN", "C23412B9-ADC4-4438-BE3C-3D7ADCA3541D")
+  // after how many minutes we record a location locally in SQLite database (if there is a location)
+  .constant("LOCAL_DB_ENTRY_MINUTES", 15)
+  // after how many minutes we sync all locations to API server database (if there is a location)
+  .constant("API_DB_ENTRY_MINUTES", 60)
+  // icon used for showing push notifications
+  .constant("PUSH_ICON", "https://api.viruspathtracer.com/assets/img/push_icon.png");
+```
+## SQLite Database Settings
 
-      if (window.StatusBar) {
-        // Set the statusbar to use the default style, tweak this to
-        // remove the status bar on iOS or change it to use white instead of dark colors.
-        StatusBar.styleDefault();
-      }
+### js/app.js
 
-      //create the database and table
-      if(window.cordova) {
-        try {
+```Javascript
+try {
           db = $cordovaSQLite.openDB({
-            name: "vptdbasefinalversion.db",
+            name: "vptdbasefinalversion.db", // database name
             location: "default",
             androidDatabaseProvider: "system",
             androidLockWorkaround: 1
@@ -66,15 +83,18 @@ angular
         } catch (error) {
           alert(error);
         }
+		//device table
         $cordovaSQLite.execute(
           db,
           "CREATE TABLE IF NOT EXISTS device (id INTEGER PRIMARY KEY, country TEXT, platform TEXT, uuid TEXT, version TEXT, manufacturer TEXT, is_infected INTEGER DEFAULT 0, infected_marked_by TEXT, infected_at TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
         );
+		//ledgers table
         $cordovaSQLite.execute(
           db,
           "CREATE TABLE IF NOT EXISTS ledgers (id INTEGER PRIMARY KEY, latitude TEXT, longitude TEXT, status INTEGER DEFAULT 0, created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
         ).then(
           function(unique_index) {
+		   //unique index on date for duplicate entries
             $cordovaSQLite.execute(
               db,
               "CREATE UNIQUE INDEX IF NOT EXISTS UniqueCreatedAt ON ledgers (created_at)"
@@ -83,26 +103,4 @@ angular
           function(error) {
           }
         );
-        bgGeo = window.BackgroundGeolocation;
-        bgFetch = window.BackgroundFetch;
-      }
-    });
-  })
-  .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state("registration", {
-        cache: false,
-        url: "/registration",
-        templateUrl: "views/registration.html",
-        controller: "RegistrationController"
-      })
-      .state("status", {
-        cache: false,
-        url: "/status",
-        templateUrl: "views/status.html",
-        controller: "StatusController"
-      });
-
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise("/registration");
-  });
+```
