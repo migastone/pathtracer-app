@@ -1,4 +1,4 @@
-Virus Path Tracer &middot; [Mobile App]
+Virus Path Tracer &middot; [Mobile App] - [DOWNLOAD APK](https://github.com/migastone/pathtracer-app/raw/master/platforms/android/app/build/outputs/apk/debug/app-debug.apk "DOWNLOAD APK")
 ===========================================================================
 
 [![](https://d1aettbyeyfilo.cloudfront.net/migastone/3216354_1548953319823Logo_Migastone_blue400px.png)](https://www.migastone.com/)
