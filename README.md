@@ -59,17 +59,17 @@ $ ionic cordova serve
 angular
   .module("virus_path_tracer.config", [])
   // URL of the API server
-  .constant("API_URL", "https://api.viruspathtracer.com/api/") 
+  .constant("API_URL", "https://SERVER_URL/api/") 
   // API token key on server
-  .constant("API_TOKEN_KEY", "o4FLb6OWVq6vXgaes1zNS0NDKhQM44") 
+  .constant("API_TOKEN_KEY", "TOKEN_KEY") //e.g. abc123hudes12AB
    // API token value of server
-  .constant("API_TOKEN", "C23412B9-ADC4-4438-BE3C-3D7ADCA3541D")
+  .constant("API_TOKEN", "TOKEN_KEY_VALUE") //e.g. D25412B9-BCC4-4444-BE3C-3D7ADCA3590A
   // after how many minutes we record a location locally in SQLite database (if there is a location)
   .constant("LOCAL_DB_ENTRY_MINUTES", 15) 
   // after how many minutes we sync all locations to API server database (if there is a location)
   .constant("API_DB_ENTRY_MINUTES", 60)
   // icon used for showing push notifications
-  .constant("PUSH_ICON", "https://api.viruspathtracer.com/assets/img/push_icon.png");
+  .constant("PUSH_ICON", "https://SERVER_URL/imgages/push_icon.png");
 ```
 ## SQLite Database Settings
 
