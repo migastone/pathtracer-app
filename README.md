@@ -5,7 +5,7 @@ Virus Path Tracer &middot; [Mobile App] - [DOWNLOAD APK](https://github.com/miga
 
 -------------------------------------------------------------------------------
 
-"Project developed from MIGAWIN SRL - SAN MARINO ([www.migawin.com](https://www.migawin.com "www.migawin.com"))  a technological startup founded from [Migastone](https://www.migastone.com/ "Migastone")"
+Project developed from MIGAWIN SRL - SAN MARINO ([www.migawin.com](https://www.migawin.com "www.migawin.com"))  a technological startup founded from [Migastone](https://www.migastone.com/ "Migastone")
 
 -------------------------------------------------------------------------------
 
@@ -164,3 +164,6 @@ The app consist of 2 *views* which includes `registration.html` and `status.html
   ....... 
 </ion-view>
 ```
+
+**IMPORTANT:** These components used are subjected to an LTU license to be used, please contact the copywright owners to acquire the license to use in your own project:
++ `cordova-background-geolocation`
