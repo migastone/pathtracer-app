@@ -5,7 +5,7 @@ Virus Path Tracer &middot; [Mobile App] - [DOWNLOAD APK](https://github.com/miga
 
 -------------------------------------------------------------------------------
 
-Project developed from MIGAWIN SRL - SAN MARINO ([www.migawin.com](https://www.migawin.com "www.migawin.com"))  a technological startup founded from [Migastone](https://www.migastone.com/ "Migastone")
+Project developed from MIGAWIN SRL - SAN MARINO ([www.migawin.com](https://www.migawin.com "www.migawin.com"))  a technological startup founded by [Migastone](https://www.migastone.com/ "Migastone")
 
 -------------------------------------------------------------------------------
 
