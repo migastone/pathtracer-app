@@ -69,7 +69,7 @@ angular
   // after how many minutes we sync all locations to API server database (if there is a location)
   .constant("API_DB_ENTRY_MINUTES", 60)
   // icon used for showing push notifications
-  .constant("PUSH_ICON", "https://SERVER_URL/imgages/push_icon.png");
+  .constant("PUSH_ICON", "https://SERVER_URL/public/images/push_icon.png");
 ```
 ## SQLite Database Settings
 
