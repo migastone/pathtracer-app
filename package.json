@@ -14,7 +14,7 @@
     "gulp": "^3.5.6",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^6.0.1"
   },
   "dependencies": {
     "@capacitor/core": "1.5.1",
